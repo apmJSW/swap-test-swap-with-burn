@@ -49,14 +49,14 @@ function App() {
             </Button>
           </div>
         ) : (
-          <InnerContainer>
+          <AccountWrapper>
             <FlexWrapper>
               <Account>{account}</Account>
               <Logout>
                 <Button onClick={logout}>지갑 연결 해제</Button>
               </Logout>
             </FlexWrapper>
-          </InnerContainer>
+          </AccountWrapper>
         )}
       </Header>
       {web3 && (
@@ -90,10 +90,10 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
 `;
-const InnerContainer = styled.div`
+const AccountWrapper = styled.div`
   padding: 20px 0;
-  width: 600px;
-  border: 1px solid grey;
+  width: 540px;
+  border: 1px solid #bdbdbd;
   border-radius: 5px;
 `;
 const FlexWrapper = styled.div`
