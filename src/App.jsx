@@ -6,7 +6,7 @@ import Swapper from "./artifacts/Swapper.json";
 import NantoToken from "./artifacts/NantoToken.json";
 import SwapTestToken from "./artifacts/SwapTestToken.json";
 import Balance from "./Balance";
-import SwapperContainer from "./Swapper";
+import SwapWithBurn from "./SwapWithBurn";
 
 function App() {
   const {
@@ -72,7 +72,7 @@ function App() {
               <Balance token={tokenNT} unit="NT" reload={reload} />
             </TagDiv>
           </FlexWrapper>
-          <SwapperContainer
+          <SwapWithBurn
             swapper={swapper}
             tokenST={tokenST}
             reload={reload}
