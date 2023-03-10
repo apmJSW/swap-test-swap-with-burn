@@ -46,6 +46,7 @@ function SwapWithBurn({ swapper, tokenST, reload, setReload }) {
         .swapWithBurn(tokenNTAddr, tokenSTAddr, String(amount * 10 ** 18))
         .send({ from: account });
 
+      setAmount(0);
       setReload((prev) => !prev);
     } catch (error) {
       console.log(error);
@@ -65,6 +66,7 @@ function SwapWithBurn({ swapper, tokenST, reload, setReload }) {
               textAlign: "right",
               paddingRight: "15px",
             }}
+            disabled={loading}
             name="swap"
             value={takeComma(amount)}
             onChange={handleCount}

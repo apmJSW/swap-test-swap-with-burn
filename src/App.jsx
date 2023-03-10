@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Button, Tag } from "antd";
+import { ArrowRightOutlined } from "@ant-design/icons";
 import { WalletContext } from "./context";
 import Swapper from "./artifacts/Swapper.json";
 import NantoToken from "./artifacts/NantoToken.json";
@@ -67,7 +68,9 @@ function App() {
             <TagDiv color="green">
               <Balance token={tokenST} unit="ST" reload={reload} />
             </TagDiv>
-            <div>--&gt;</div>
+            <div style={{ margin: "0 5px" }}>
+              <ArrowRightOutlined />
+            </div>
             <TagDiv color="red">
               <Balance token={tokenNT} unit="NT" reload={reload} />
             </TagDiv>
@@ -117,8 +120,8 @@ const Account = styled.div`
 const Logout = styled.div``;
 const TagDiv = styled(Tag)`
   margin: 0 5px;
-  padding: 5px 10px;
-  font-size: 14px;
+  padding: 5px 12px;
+  font-size: 16px;
 `;
 
 export default App;

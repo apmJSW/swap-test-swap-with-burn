@@ -1,6 +1,10 @@
 import React from "react";
 import { WalletContext } from "./context";
 
+const takeComma = (num) => {
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+
 function Balance({ token, unit, reload }) {
   const { account } = React.useContext(WalletContext);
   const [balance, setBalance] = React.useState(null);
@@ -28,7 +32,7 @@ function Balance({ token, unit, reload }) {
 
   return (
     <div>
-      {balance} {unit}
+      {takeComma(balance || "")} {unit}
     </div>
   );
 }
