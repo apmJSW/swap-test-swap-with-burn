@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Input, Button, Select } from "antd";
+import { Input, Button, Select, Spin } from "antd";
 import { WalletContext } from "./context";
 
 const SWAP_WITH_BURN = `swap with burn`;
@@ -128,20 +128,23 @@ function Swapper({ swapper, tokenST, reload, setReload }) {
           </div>
         </div>
         <div style={{ margin: "0 15px", fontSize: "17px" }}>
-          {!loading ? (
-            <Button
-              type="primary"
-              size="large"
-              style={{ width: "150px" }}
-              onClick={type === APPROVE ? approve : swapWithBurn}
-            >
-              {type}
-            </Button>
-          ) : (
-            "wait a moment please..."
-          )}
+          <Button
+            type="primary"
+            size="large"
+            disabled={loading}
+            style={{ width: "150px" }}
+            onClick={type === APPROVE ? approve : swapWithBurn}
+          >
+            {type}
+          </Button>
         </div>
       </FlexWrapper>
+      {loading && (
+        <FlexWrapper style={{ marginTop: "36px" }}>
+          <Spin style={{ marginRight: "10px" }} />
+          <span>wait a moment please...</span>
+        </FlexWrapper>
+      )}
     </Container>
   );
 }
