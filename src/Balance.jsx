@@ -17,7 +17,7 @@ function Balance({ token, unit, reload }) {
 
       const _balance = await token.methods.balanceOf(account).call();
 
-      setBalance(_balance / 10 ** 18);
+      setBalance(Math.floor(_balance / 10 ** 18));
     },
     [account]
   );
@@ -32,7 +32,7 @@ function Balance({ token, unit, reload }) {
 
   return (
     <div>
-      {takeComma(balance || "")} {unit}
+      {takeComma(balance || 0)} {unit}
     </div>
   );
 }
